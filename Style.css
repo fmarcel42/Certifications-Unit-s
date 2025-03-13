@@ -1,0 +1,3 @@
+body { font-family: Arial, sans-serif; text-align: center; }
+.container { max-width: 600px; margin: auto; }
+.unite { padding: 10px; border: 1px solid #ddd; margin: 10px; cursor: pointer; }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certification des Unités</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Liste des Unités</h2>
+    <div class="container" id="unite-list"></div>
+
+    <script>
+        // Données des unités
+        const unites = [
+            { id: 1, name: "Unité A", date: "2024-06-10", status: "À jour", cert: "certificat-a.pdf" },
+            { id: 2, name: "Unité B", date: "2023-11-15", status: "Expiré", cert: "certificat-b.pdf" },
+            { id: 3, name: "Unité C", date: "2024-02-20", status: "À jour", cert: "certificat-c.pdf" }
+        ];
+
+        // Générer la liste
+        const container = document.getElementById("unite-list");
+        unites.forEach(unite => {
+            let div = document.createElement("div");
+            div.classList.add("unite");
+            div.innerHTML = `<strong>${unite.name}</strong> - Certification : ${unite.status}`;
+            div.onclick = () => window.location.href = `unite.html?id=${unite.id}`;
+            container.appendChild(div);
+        });
+    </script>
+</body>
+</html>

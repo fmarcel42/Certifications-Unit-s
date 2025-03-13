@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détail de l'Unité</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Détails de l'Unité</h2>
+    <div id="unite-details"></div>
+    <button onclick="window.location.href='index.html'">Retour</button>
+
+    <script>
+        const unites = [
+            { id: 1, name: "Unité A", date: "2024-06-10", status: "À jour", cert: "certificat-a.pdf" },
+            { id: 2, name: "Unité B", date: "2023-11-15", status: "Expiré", cert: "certificat-b.pdf" },
+            { id: 3, name: "Unité C", date: "2024-02-20", status: "À jour", cert: "certificat-c.pdf" }
+        ];
+
+        const params = new URLSearchParams(window.location.search);
+        const uniteId = parseInt(params.get("id"));
+        const unite = unites.find(u => u.id === uniteId);
+
+        if (unite) {
+            document.getElementById("unite-details").innerHTML = `
+                <p><strong>Nom :</strong> ${unite.name}</p>
+                <p><strong>Date de Certification :</strong> ${unite.date}</p>
+                <p><strong>Statut :</strong> ${unite.status}</p>
+                <p><a href="${unite.cert}" target="_blank">Voir le certificat</a></p>
+            `;
+        } else {
+            document.getElementById("unite-details").innerHTML = "<p>Unité introuvable.</p>";
+        }
+    </script>
+</body>
+</html>
